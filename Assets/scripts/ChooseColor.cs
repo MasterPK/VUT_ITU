@@ -6,11 +6,20 @@ using UnityEngine.UI;
 public class ChooseColor : MonoBehaviour
 {
     public Image whiteImg;
-   public void SetImage(Image image)
+    public Image whiteImgFrame;
+    public Image blackImg;
+    public Image blackImgFrame;
+    public void SetActiveWhite()
     {
-        whiteImg.sprite = Resources.Load<Sprite>("black");
-
+        whiteImgFrame.enabled = true;
+        blackImgFrame.enabled = false;
     }
 
-  
+    public void SetActiveBlack()
+    {
+        whiteImgFrame.enabled = false;
+        blackImgFrame.enabled = true;
+    }
+
+
 }
