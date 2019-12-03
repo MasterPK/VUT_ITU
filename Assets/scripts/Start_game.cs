@@ -9,7 +9,12 @@ public class Start_game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tlacitko.onClick.AddListener(TaskOnClick);
+        try
+        {
+            tlacitko.onClick.AddListener(TaskOnClick);
+        }catch
+        { }
+        
     }
 
     // Update is called once per frame
@@ -20,5 +25,15 @@ public class Start_game : MonoBehaviour
     private void TaskOnClick()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void OpenTutorial()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void CloseTutorial()
+    {
+        SceneManager.LoadScene(0);
     }
 }

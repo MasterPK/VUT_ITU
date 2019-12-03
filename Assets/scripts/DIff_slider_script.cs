@@ -23,15 +23,15 @@ public class DIff_slider_script : MonoBehaviour
     {
         if (value == 0)
         {
-            textt.text = "Easy";
+            textt.text = "Jednoduchá";
         }
         if (value == 1)
         {
-            textt.text = "Medium";
+            textt.text = "Střední";
         }
         if (value == 2)
         {
-            textt.text = "Hard";
+            textt.text = "Náročná";
         }
     }
 }
