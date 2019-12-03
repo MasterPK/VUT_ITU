@@ -83,6 +83,17 @@ public abstract class BasePiece : EventTrigger
     protected virtual void CheckPathing()
     {
 
+        CreateCellPath(1, 0, mMovement.x);
+        CreateCellPath(-1, 0, mMovement.x);
+
+        CreateCellPath(0, 1, mMovement.y);
+        CreateCellPath(0, -1, mMovement.y);
+
+        CreateCellPath(1, 1, mMovement.z);
+        CreateCellPath(-1, 1, mMovement.z);
+
+        CreateCellPath(1, -1, mMovement.z);
+        CreateCellPath(-1, -1, mMovement.z);
     }
 
     protected void ShowCells()
@@ -116,18 +127,7 @@ public abstract class BasePiece : EventTrigger
     {
         base.OnBeginDrag(eventData);
 
-        CreateCellPath(1, 0, mMovement.x);
-        CreateCellPath(-1, 0, mMovement.x);
-
-        CreateCellPath(0, 1, mMovement.y);
-        CreateCellPath(0, -1, mMovement.y);
-
-        CreateCellPath(1, 1, mMovement.z);
-        CreateCellPath(-1, 1, mMovement.z);
-
-        CreateCellPath(1, -1, mMovement.z);
-        CreateCellPath(-1, -1, mMovement.z);
-
+        CheckPathing();
         ShowCells();
     }
 
