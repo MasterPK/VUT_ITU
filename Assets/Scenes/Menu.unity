@@ -1834,7 +1834,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771744865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2257,11 +2257,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1201430286}
-        m_MethodName: SetImage
-        m_Mode: 2
+        m_MethodName: SetActiveWhite
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1201430284}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2316,9 +2316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteImg: {fileID: 1201430284}
-  whiteImgFrame: {fileID: 0}
-  blackImg: {fileID: 0}
-  blackImgFrame: {fileID: 0}
+  whiteImgFrame: {fileID: 771744867}
+  blackImg: {fileID: 1474092914}
+  blackImgFrame: {fileID: 2080832611}
 --- !u!1 &1201693482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2966,10 +2966,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786590509a9ca7843ac1dcf057984d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteImg: {fileID: 0}
-  whiteImgFrame: {fileID: 0}
-  blackImg: {fileID: 0}
-  blackImgFrame: {fileID: 0}
+  whiteImg: {fileID: 1201430284}
+  whiteImgFrame: {fileID: 771744867}
+  blackImg: {fileID: 1474092914}
+  blackImgFrame: {fileID: 2080832611}
 --- !u!114 &1474092912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3026,7 +3026,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1474092914}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474092911}
+        m_MethodName: SetActiveBlack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1474092914
 MonoBehaviour:
   m_ObjectHideFlags: 0
