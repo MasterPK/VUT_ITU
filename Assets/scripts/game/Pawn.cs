@@ -37,8 +37,8 @@ public class Pawn : BasePiece
 
         MatchesState(curentX - mMovement.z, curentY + mMovement.z, CellState.Free);
 
-        MatchesState(curentX, curentY + mMovement.y, CellState.Free);
+        //MatchesState(curentX, curentY + mMovement.y, CellState.Free);
 
-        MatchesState(curentX + mMovement.z, curentY + mMovement.z, CellState.Enemy);
+        MatchesState(curentX + mMovement.z, curentY + mMovement.z, CellState.Free);
     }
 }
