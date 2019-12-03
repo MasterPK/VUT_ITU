@@ -64,6 +64,18 @@ public abstract class BasePiece : EventTrigger
             currentX += xDirection;
             currentY += yDirection;
 
+            CellState cellState = CellState.None;
+            cellState = mCurrentCell.mBoard.ValidateCell(currentX, currentY, this);
+
+            if(cellState == CellState.Enemy)
+            {
+                mHighlightedCells.Add(mCurrentCell.mBoard.mAllCells[currentX, currentY]);
+                break;
+            }
+
+            if (cellState != CellState.Free)
+                break;
+
             mHighlightedCells.Add(mCurrentCell.mBoard.mAllCells[currentX, currentY]);
         }
     }
@@ -104,17 +116,17 @@ public abstract class BasePiece : EventTrigger
     {
         base.OnBeginDrag(eventData);
 
-        //CreateCellPath(1, 0, mMovement.x);
-        //CreateCellPath(-1, 0, mMovement.x);
+        CreateCellPath(1, 0, mMovement.x);
+        CreateCellPath(-1, 0, mMovement.x);
 
-        //CreateCellPath(0, 1, mMovement.y);
-        //CreateCellPath(0, -1, mMovement.y);
+        CreateCellPath(0, 1, mMovement.y);
+        CreateCellPath(0, -1, mMovement.y);
 
         CreateCellPath(1, 1, mMovement.z);
         CreateCellPath(-1, 1, mMovement.z);
 
-        //CreateCellPath(1, -1, mMovement.z);
-        //CreateCellPath(-1, -1, mMovement.z);
+        CreateCellPath(1, -1, mMovement.z);
+        CreateCellPath(-1, -1, mMovement.z);
 
         ShowCells();
     }
@@ -149,6 +161,7 @@ public abstract class BasePiece : EventTrigger
         }
 
         Move();
+        mPieceManager.SwitchSides(mColor);
         mHighlightedCells.Clear();
 
     }

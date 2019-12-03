@@ -5,6 +5,7 @@ using UnityEngine;
 public class PieceManager : MonoBehaviour
 {
 
+    public bool mIsStillPiece = true;
     public GameObject mPiecePrefab;
 
     private List<BasePiece> mWhitePieces = null;
@@ -31,6 +32,8 @@ public class PieceManager : MonoBehaviour
 
         PlaceWhitePieces(2, 1, 0, mWhitePieces, board);
         PlaceBlackPieces(5,6,7, mBlackPieces, board);
+
+        SwitchSides(Color.black);
     }
 
     private List<BasePiece> CreatePieces(Color teamColor, Color32 spriteColor, Board board)
@@ -102,17 +105,35 @@ public class PieceManager : MonoBehaviour
 
     private void SetInteractive(List<BasePiece> allPieces, bool value)
     {
-
+        foreach (BasePiece piece in allPieces)
+            piece.enabled = value;
     }
 
     public void SwitchSides(Color color)
     {
-  
+        if(!mIsStillPiece)
+        {
+            ResetPieces();
+
+            mIsStillPiece = true;
+
+            color = Color.black;
+        }
+
+        bool isBlackTurn = color == Color.white ? true : false;
+
+        SetInteractive(mWhitePieces, !isBlackTurn);
+        SetInteractive(mBlackPieces, isBlackTurn);
+
     }
 
     public void ResetPieces()
     {
+        foreach (BasePiece piece in mWhitePieces)
+            piece.Reset();
 
+        foreach (BasePiece piece in mBlackPieces)
+            piece.Reset();
     }
 
     public void PromotePiece(Pawn pawn, Cell cell, Color teamColor, Color spriteColor)
